@@ -20,7 +20,10 @@ namespace RestaurantApp_Team
     {
         new Restaurant { Name = "KFC", Type = "Fast Food", Rating = 4.2 },
         new Restaurant { Name = "MK", Type = "Suki", Rating = 4.7 },
-        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 }
+        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 },
+        new Restaurant { Name = "Mala", Type = "Chinese Fod", Rating = 4.0 },
+        new Restaurant { Name = "Chicken 5 Star", Type = "Grill Chicken", Rating = 4.7 },
+        new Restaurant { Name = "Gareepup", Type = "Food", Rating = 4.8 }
     };
 
         static void Main(string[] args)
@@ -59,7 +62,26 @@ namespace RestaurantApp_Team
         // คน A รับผิดชอบ
         static void AddRestaurant()
         {
-            Console.WriteLine("Not completed");
+            double Rating;
+            Console.WriteLine("Restaurant name : ");
+            String name = Console.ReadLine();
+            Console.WriteLine("Restaurant Type : ");
+            String Type = Console.ReadLine();
+            Console.WriteLine("Rating : ");
+            Rating = double.Parse(Console.ReadLine());         
+            restaurants.Add(new Restaurant
+            {
+                Name = name,
+                Type = Type,
+                Rating = Rating
+            });
+            foreach (var item in restaurants)
+            {
+                Console.WriteLine("Name: " + item.Name);
+                Console.WriteLine("Type: " + item.Type);
+                Console.WriteLine("Rating: " + item.Rating);
+                Console.WriteLine("-------------------");
+            }
         }
 
         // คน B รับผิดชอบ
