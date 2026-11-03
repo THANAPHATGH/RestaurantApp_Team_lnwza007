@@ -63,11 +63,11 @@ namespace RestaurantApp_Team
         static void AddRestaurant()
         {
             double Rating;
-            Console.WriteLine("Restaurant name : ");
+            Console.Write("Restaurant name : ");
             String name = Console.ReadLine();
-            Console.WriteLine("Restaurant Type : ");
+            Console.Write("Restaurant Type : ");
             String Type = Console.ReadLine();
-            Console.WriteLine("Rating : ");
+            Console.Write("Rating : ");
             Rating = double.Parse(Console.ReadLine());         
             restaurants.Add(new Restaurant
             {
@@ -93,7 +93,25 @@ namespace RestaurantApp_Team
         // คน C รับผิดชอบ
         static void ShowSummary()
         {
-            Console.WriteLine("Not completed");
+            double maxRating = restaurants.Max(x => x.Rating);
+            double lowestRating = restaurants.Min(x => x.Rating);
+
+            foreach (var item in restaurants)
+            {
+                if (item.Rating == maxRating)
+                {
+                    Console.WriteLine("Restaurant: " + item.Name);
+                    Console.WriteLine("Rating: " + item.Rating);
+                }
+            }
+            foreach (var item in restaurants)
+            {
+                if (item.Rating == lowestRating)
+                { 
+                    Console.WriteLine("Restaurant : "+item.Name);
+                    Console.WriteLine("Rating : " + item.Rating);
+                }
+            }
         }
     }
 
